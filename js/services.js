@@ -1,0 +1,4 @@
+var g=document.getElementById("sg");
+function draw(f){g.innerHTML="";S.forEach(function(x){if(f!="all"&&x[0]!=f)return;var d=document.createElement("div");var p=P[x[1]]||["",""];d.className="card rv";d.style.transitionDelay=(g.children.length%4)*70+"ms";d.innerHTML="<h3>"+({v:"🎥 ",w:"💻 ",d:"🎨 "}[x[0]])+x[1]+"</h3><p>"+x[2]+"</p><div class='pr'><b>"+p[0]+"</b> <small>"+p[1]+"</small></div><a href='services/"+x[1].toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+".html'>View Details →</a><a href='contact.html?service="+encodeURIComponent(x[1])+"'>Get a Quote →</a>";g.appendChild(d);setTimeout(function(){window.obs&&obs()},0)})}
+draw("all");
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){document.querySelectorAll(".tabs button").forEach(function(k){k.classList.remove("on")});b.classList.add("on");draw(b.dataset.f)}});
